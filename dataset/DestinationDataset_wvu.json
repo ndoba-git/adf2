@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_wvu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "test",
+				"folderPath": "PARQUET",
+				"fileSystem": "adventureworks"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

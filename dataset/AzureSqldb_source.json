@@ -1,0 +1,25 @@
+{
+	"name": "AzureSqldb_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "firstname",
+				"type": "varchar"
+			},
+			{
+				"name": "lastname",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[adlake]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

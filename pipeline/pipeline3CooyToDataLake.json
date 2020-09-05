@@ -1,0 +1,54 @@
+{
+	"name": "pipeline3CooyToDataLake",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy Data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT TOP (100) [vrmrrn]\n      ,[vrmtrl]\n      ,[vrmpcn]\n      ,[vrmins]\n      ,[vrmdub]\n      ,[vrmdtc]\n      ,[vrmusc]\n      ,[vrmdtm]\n      ,[vrmusm]\n      ,[dosnum]\n      ,[vrmtit]\n      ,[vrmlg1]\n      ,[vrmlg2]\n      ,[vrmlg3]\n      ,[vrmdts]\n      ,[vrmdtu]\n      ,[vrmcntbew]\n      ,[vrmcntsis]\n      ,[vrmcntbcs]\n      ,[vrmcntmf]\n      ,[vrmcntprak]\n      ,[vrmcnteudac]\n      ,[vrmrefdos]\n  FROM [dbo].[vrm]\nwhere vrmrrn > '000000004284'",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureSqldb_source",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "vrmADL1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2019-08-07T14:10:04Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

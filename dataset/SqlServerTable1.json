@@ -1,0 +1,161 @@
+{
+	"name": "SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LAPTOP4R0PT2T3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ProductKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ProductLabel",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductDescription",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductSubcategoryKey",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Manufacturer",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BrandName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ClassID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ClassName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "StyleID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "StyleName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ColorID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ColorName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Size",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SizeRange",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SizeUnitMeasureID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Weight",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "WeightUnitMeasureID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "UnitOfMeasureID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "UnitOfMeasureName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "StockTypeID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "StockTypeName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "UnitCost",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "UnitPrice",
+				"type": "money",
+				"precision": 19,
+				"scale": 4
+			},
+			{
+				"name": "AvailableForSaleDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "StopSaleDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ImageURL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductURL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ETLLoadID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "LoadDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "UpdateDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[DimProduct]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

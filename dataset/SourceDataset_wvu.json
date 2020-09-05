@@ -1,0 +1,27 @@
+{
+	"name": "SourceDataset_wvu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LAPTOP4R0PT2T3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "test"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
