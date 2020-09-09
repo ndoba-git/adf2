@@ -1,8 +1,0 @@
-{
-	"name": "ppl_test",
-	"properties": {
-		"annotations": [],
-		"lastPublishTime": "2020-06-16T14:08:36Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
-}
