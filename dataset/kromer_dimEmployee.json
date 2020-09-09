@@ -11,11 +11,12 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "Employee.txt",
-				"folderPath": "kromer",
+				"folderPath": "Kromer",
 				"fileSystem": "csv"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
