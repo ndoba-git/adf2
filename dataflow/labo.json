@@ -1,0 +1,24 @@
+{
+	"name": "labo",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqldb_source",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "source(output(\n\t\tEmpID as integer,\n\t\tsurrogatekey as long,\n\t\tRegion as string,\n\t\tStatus as string,\n\t\tEmpFunction as string,\n\t\tLevel as string,\n\t\tRole as string,\n\t\tStartDate as timestamp,\n\t\tEndDate as timestamp,\n\t\tisCurrent as boolean,\n\t\tprocesstime as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'SELECT  [EmpID]\\n      ,[surrogatekey]\\n      ,[Region]\\n      ,[Status]\\n      ,[EmpFunction]\\n      ,[Level]\\n      ,[Role]\\n      ,[StartDate]\\n      ,[EndDate]\\n      ,[isCurrent]\\n      ,[processtime]\\n  FROM [dbo].[DimEmp]',\n\tformat: 'query') ~> source1\nsource1 derive(toto = EmpID + 10) ~> DerivedColumn1"
+		}
+	}
+}
