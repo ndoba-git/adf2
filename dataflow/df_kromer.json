@@ -5,16 +5,12 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "kromer_dimEmployee",
-						"type": "DatasetReference"
-					},
 					"name": "source1"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "source(allowSchemaDrift: false,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['sales.txt']) ~> source1"
+			"script": "source(allowSchemaDrift: false,\n\tvalidateSchema: false,\n\twildcardPaths:['sales.txt']) ~> source1"
 		}
 	}
 }
