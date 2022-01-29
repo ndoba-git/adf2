@@ -10,9 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Employee.txt",
-				"folderPath": "Kromer",
-				"fileSystem": "csv"
+				"fileSystem": "kromer"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
