@@ -10,11 +10,25 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "DSkromercsv",
+						"type": "DatasetReference"
+					},
+					"name": "salesNew"
+				},
+				{
+					"dataset": {
+						"referenceName": "DSkromercsv",
+						"type": "DatasetReference"
+					},
+					"name": "salesUpdate"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['Sales.txt']) ~> source1"
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['Sales.txt']) ~> source1\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['SalesNew.txt']) ~> salesNew\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['SalesUpdate.txt']) ~> salesUpdate"
 		}
 	}
 }
