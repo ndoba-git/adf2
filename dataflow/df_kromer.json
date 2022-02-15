@@ -41,10 +41,10 @@
 					"name": "SurrogateKey"
 				},
 				{
-					"name": "Aggregate1"
+					"name": "Distinct"
 				}
 			],
-			"script": "source(output(\n\t\tID as string,\n\t\tTitle as string,\n\t\tCost as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['Sales.txt']) ~> sales\nsource(output(\n\t\tID as string,\n\t\tTitle as string,\n\t\tCost as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['SalesNew.txt']) ~> salesNew\nsource(output(\n\t\tID as string,\n\t\tTitle as string,\n\t\tCost as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['SalesUpdate.txt']) ~> salesUpdate\nsales, salesNew union(byName: true)~> Unionsales\nUnionsales, salesUpdate union(byName: true)~> UnionUpdates\nUnionUpdates filter(!isNull(Title)) ~> NotNull\nNotNull keyGenerate(output(myKey as long),\n\tstartAt: 1L) ~> SurrogateKey\nSurrogateKey aggregate(groupBy(ID),\n\twinner = last(myKey)) ~> Aggregate1"
+			"script": "source(output(\n\t\tID as string,\n\t\tTitle as string,\n\t\tCost as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['Sales.txt']) ~> sales\nsource(output(\n\t\tID as string,\n\t\tTitle as string,\n\t\tCost as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['SalesNew.txt']) ~> salesNew\nsource(output(\n\t\tID as string,\n\t\tTitle as string,\n\t\tCost as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['SalesUpdate.txt']) ~> salesUpdate\nsales, salesNew union(byName: true)~> Unionsales\nUnionsales, salesUpdate union(byName: true)~> UnionUpdates\nUnionUpdates filter(!isNull(Title)) ~> NotNull\nNotNull keyGenerate(output(myKey as long),\n\tstartAt: 1L) ~> SurrogateKey\nSurrogateKey aggregate(groupBy(ID),\n\twinner = last(myKey)) ~> Distinct"
 		}
 	}
 }
