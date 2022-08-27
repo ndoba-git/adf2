@@ -10,7 +10,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "Oeprod_DimEmployee",
+						"referenceName": "Oeprod",
 						"type": "DatasetReference"
 					},
 					"name": "DimEmployees",

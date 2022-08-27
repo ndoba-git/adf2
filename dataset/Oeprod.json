@@ -1,5 +1,5 @@
 {
-	"name": "Oeprod_DimEmployee",
+	"name": "Oeprod",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase1",
@@ -10,7 +10,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "DimEmp"
+			"table": "test_adf"
 		}
 	}
 }
