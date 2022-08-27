@@ -1,0 +1,81 @@
+{
+	"name": "ds_datalake_file_format",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Oeprod",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "sort1"
+				},
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          vrmrrn as string,",
+				"          vrmtrl as string,",
+				"          vrmpcn as string,",
+				"          vrmins as string,",
+				"          vrmdub as string,",
+				"          vrmdtc as timestamp,",
+				"          vrmusc as string,",
+				"          vrmdtm as timestamp,",
+				"          vrmusm as string,",
+				"          dosnum as integer,",
+				"          vrmtit as string,",
+				"          vrmlg1 as string,",
+				"          vrmlg2 as string,",
+				"          vrmlg3 as string,",
+				"          vrmdts as timestamp,",
+				"          vrmdtu as timestamp,",
+				"          vrmcntbew as integer,",
+				"          vrmcntsis as integer,",
+				"          vrmcntbcs as integer,",
+				"          vrmcntmf as integer,",
+				"          vrmcntprak as integer,",
+				"          vrmcnteudac as integer,",
+				"          vrmrefdos as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table',",
+				"     partitionBy('key',",
+				"          0,",
+				"          vrmusc",
+				"     )) ~> source1",
+				"source1 sort(asc(vrmrrn, true),",
+				"     partitionLevel: true) ~> sort1",
+				"sort1 derive(filename = \"Out/demoout1/movies-{vrmusc}.csv\") ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     rowUrlColumn:'filename',",
+				"     truncate: true,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

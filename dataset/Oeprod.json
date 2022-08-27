@@ -7,7 +7,115 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "vrmrrn",
+				"type": "char"
+			},
+			{
+				"name": "vrmtrl",
+				"type": "char"
+			},
+			{
+				"name": "vrmpcn",
+				"type": "char"
+			},
+			{
+				"name": "vrmins",
+				"type": "char"
+			},
+			{
+				"name": "vrmdub",
+				"type": "char"
+			},
+			{
+				"name": "vrmdtc",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "vrmusc",
+				"type": "char"
+			},
+			{
+				"name": "vrmdtm",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "vrmusm",
+				"type": "char"
+			},
+			{
+				"name": "dosnum",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vrmtit",
+				"type": "char"
+			},
+			{
+				"name": "vrmlg1",
+				"type": "varchar"
+			},
+			{
+				"name": "vrmlg2",
+				"type": "varchar"
+			},
+			{
+				"name": "vrmlg3",
+				"type": "varchar"
+			},
+			{
+				"name": "vrmdts",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "vrmdtu",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "vrmcntbew",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vrmcntsis",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vrmcntbcs",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vrmcntmf",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vrmcntprak",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vrmcnteudac",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vrmrefdos",
+				"type": "char"
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
 			"table": "test_adf"
